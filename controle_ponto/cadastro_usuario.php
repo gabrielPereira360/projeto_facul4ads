@@ -69,6 +69,7 @@ $matricula = $_SESSION['matricula'];
       </div>
       <p id="resultado"></p>
 
+
       <hr style="border: 1px solid purple;">
 
       <div class="form-group">
@@ -123,15 +124,15 @@ $matricula = $_SESSION['matricula'];
             document.getElementById('resultado').innerHTML = `
               <div class="form-group">
                 <label>Endereço</label>
-                <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off" value="${endereco.logradouro}, ${endereco.bairro}">
+                <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off" value="${endereco.logradouro}, ${endereco.bairro}" readonly="on">
               </div>
               <div class="form-group">
                 <label>Cidade</label>
-                <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off" value="${endereco.localidade}">
+                <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off" value="${endereco.localidade}" readonly="on">
               </div>
               <div class="form-group">
                 <label>Estado</label>
-                <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off" value="${endereco.uf}">
+                <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off" value="${endereco.uf}" readonly="on">
               </div>    
               <div class="form-group">
                 <label>Número</label>
@@ -140,7 +141,24 @@ $matricula = $_SESSION['matricula'];
             `;
           } else {
             // Se o CEP for inválido, exibir uma mensagem de erro
-            document.getElementById('resultado').innerHTML = 'CEP não encontrado';
+            document.getElementById('resultado').innerHTML = `<strong>CEP não encontrado (Informe manualmente)</strong>,<br>
+              <div class="form-group">
+                <label>Endereço</label>
+                <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Estado</label>
+                <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off">
+              </div>    
+              <div class="form-group">
+                <label>Número</label>
+                <input type="test" id="numerousuario" name="numerousuario" class="form-control" required="required" autocomplete="off">
+              </div>         
+            `;
           }
         } else {
           // Exibir uma mensagem de erro se a requisição falhar
