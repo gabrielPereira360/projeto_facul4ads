@@ -70,7 +70,7 @@ function formataData($date)
       <?php
       include "conexao.php";
 
-      $sql = "SELECT * FROM registro INNER JOIN usuarios ON registro.userid = usuarios.matricula_usuario ORDER BY inicio_expediente DESC;";
+      $sql = "SELECT * FROM registro INNER JOIN usuarios ON registro.userid = usuarios.matricula_usuario WHERE usuarios.matricula_usuario = $matricula ORDER BY inicio_expediente DESC;";
       $busca = mysqli_query($conn, $sql);
 
       while ($array = mysqli_fetch_array($busca)) {

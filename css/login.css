@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+:root{
+    --fundo: linear-gradient(0deg, #4C4570 0%, #36324B 0.01%, #6C639C 100%);
+    --branco--principal: #f6f6f6;
+    --fonte-cor: #4C4570;
+    --fonte-cor-hover: #7a6eb4;
+    --fonte-cor-input: #4C4570;
+    --cinza--principal: #CAC8D4;
+    --fonte--principal: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: var(--fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container__principal{
+    background-color: var(--branco--principal);
+    box-shadow: 0px 0px 15px 6px #30285A;
+    border-radius: 20px;
+    border: 2px solid #f3f3f3; 
+    width: 350px;
+    height: 400px;
+}
+
+.container__principal__imagem{
+    display: flex;
+    justify-content: center;
+}
+
+.principal__imagem{
+    width: 70%;
+    padding: 10% 15%;
+    margin-bottom: 10px;
+}
+
+.principal__form{
+    padding: 0 10%;
+    font-family: var(--fonte--principal);
+    color: var(--fonte-cor);
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.principal__form__group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}   
+
+.principal__form__label{
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.principal__form__group__img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.principal__form__input{
+    font-family: var(--fonte--principal);
+    color: var(--fonte-cor-input);
+    font-weight: 500;
+    font-size: 0.8rem;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--cinza--principal);
+    padding: 4% 5%;
+}
+
+.principal__form__button{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.principal__form__submit{
+    background-color: var(--fonte-cor-input);
+    border-radius: 50px;
+    border: none;
+    font-family: var(--fonte--principal);
+    color: var(--branco--principal);
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 5% 2%;
+    width: 80%;
+    transition: 0.5s;
+}
+
+.principal__form__submit:hover{
+    background-color: var(--fonte-cor-hover);
+}

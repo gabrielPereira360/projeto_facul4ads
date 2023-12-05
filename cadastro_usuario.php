@@ -64,7 +64,7 @@ $matricula = $_SESSION['matricula'];
       </div>
       <div class="form-group">
         <label>CEP</label>
-        <input type="text" name="cepusuario" id="cepusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números">
+        <input type="text" name="cepusuario" id="cepusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números" maxlength="8">
         <button type="submit" class="btn btn-sm btn-success" style="margin-top: 2%;" onclick="consultarCEP()">Consultar</button>
       </div>
       <p id="resultado"></p>
@@ -177,36 +177,6 @@ $matricula = $_SESSION['matricula'];
                 alert("CPF deve ter 11 dígitos.");
                 return false;
             }
-
-            // Verifica se todos os dígitos são iguais
-            if (/^(\d)\1+$/.test(cpf)) {
-                alert("CPF inválido.");
-                return false;
-            }
-
-            // Calcula os dígitos verificadores
-            let soma = 0;
-            for (let i = 0; i < 9; i++) {
-                soma += parseInt(cpf.charAt(i)) * (10 - i);
-            }
-
-            let resto = 11 - (soma % 11);
-            let digito1 = (resto >= 10) ? 0 : resto;
-
-            soma = 0;
-            for (let i = 0; i < 10; i++) {
-                soma += parseInt(cpf.charAt(i)) * (11 - i);
-            }
-
-            resto = 11 - (soma % 11);
-            let digito2 = (resto >= 10) ? 0 : resto;
-
-            // Verifica se os dígitos calculados são iguais aos fornecidos
-            if (digito1 !== parseInt(cpf.charAt(9)) || digito2 !== parseInt(cpf.charAt(10))) {
-                alert("CPF inválido.");
-                return false;
-            }
-            return true;
         }
 
         function validarFormulario() {

@@ -5,39 +5,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <title>Acesso ao Sistema</title>
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <style type="text/css">
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
-  <div class="container" id="tamanho" style="border-radius: 20px; border: 2px solid #f3f3f3; width: 350px;">
-    <div style="padding: 15px">
-      <center>
-        <img src="img/logo_etaure.svg" style="width: 100%; padding: 5%; margin-bottom: 5%">
-      </center>
-      <form action="index1.php" method="post">
-        <div class="form-group">
-          <label>Matricula</label>
-          <input type="number" name="matricula" class="form-control" placeholder="Informe sua matrícula" autocomplete="off" min="0" required="required">
-          <label style="margin-top: 10px;">Senha</label>
-          <input type="password" name="senha" class="form-control" placeholder="Informe sua senha" autocomplete="off" required="required">
-        </div>
-
-        <div style="text-align: right">
-          <button type="submit" class="btn btn-sm btn-success">Entrar</button>
-        </div>
-      </form>
+  <div class="container__principal">
+    <div class="container__principal__imagem">
+      <img class="principal__imagem" src="img/logo_etaure.svg" alt="Logo da Empresa Etaure">
     </div>
+    <form class="principal__form" action="index1.php" method="post">
+      <div class="principal__form__group">
+        <div class="principal__form__label">
+          <img class="principal__form__group__img" src="img/user.svg" alt="Logo representativa de usuario">
+          <label class="principal__form__texto">Matricula</label>
+        </div>
+        <input class="principal__form__input" type="number" name="matricula" placeholder="Informe sua matrícula" autocomplete="off" min="0" required="required">
+      </div>
+      <div class="principal__form__group">
+        <div class="principal__form__label">
+          <img class="principal__form__group__img" src="img/cadeado.svg" alt="Logo representativa de usuario">
+          <label class="principal__form__texto">Senha</label>
+        </div>
+        <input class="principal__form__input" type="password" name="senha" placeholder="Informe sua senha" autocomplete="off" required="required">
+      </div>
+      <div class="principal__form__button">
+        <button class="principal__form__submit" type="submit">Entrar</button>
+      </div>
+    </form>
   </div>
-
-  <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
 
 </html>

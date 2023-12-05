@@ -3,8 +3,7 @@
 
 // Se o usuário não estiver logado e tentar acessar a página diretamente pela url
 // o mesmo será redirecionado para a tela de login
-if(!isset($_SESSION['matricula']) || empty($_SESSION['matricula']))
-{
+if (!isset($_SESSION['matricula']) || empty($_SESSION['matricula'])) {
   unset($_SESSION['matricula']);
   header('Location: index.php');
 }
@@ -12,6 +11,8 @@ if(!isset($_SESSION['matricula']) || empty($_SESSION['matricula']))
 $matricula = $_SESSION['matricula'];
 
 include "conexao.php";
+
+
 
 $nomeusuario = $_POST['nomeusuario'];
 $datanascusuario = $_POST['datanascusuario'];
@@ -29,13 +30,37 @@ $senha = $_POST['senhausuario'];
 $matriculausuario = $_POST['matriculausuario'];
 $nivelUsuario = $_POST['nivelUsuario'];
 
+$sql = "SELECT matricula_usuario FROM usuarios WHERE '$matriculausuario' = matricula_usuario";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  print "<script>alert('Não foi possível adicionar o usuário. Matrícula já existente');</script>";
+  print "<script>location.href='?page=cad_user';</script>";
+}
+
+$sql = "SELECT matricula_usuario FROM usuarios WHERE '$cpfusuario' = cpf_usuario";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  print "<script>alert('Não foi possível adicionar o usuário. CPF já existente');</script>";
+  print "<script>location.href='?page=cad_user';</script>";
+}
+
+$sql = "SELECT matricula_usuario FROM usuarios WHERE '$email' = email_usuario";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  print "<script>alert('Não foi possível adicionar o usuário. email já existente');</script>";
+  print "<script>location.href='?page=cad_user';</script>";
+}
+
 $sql = "INSERT INTO `usuarios`(`nome_usuario`, `matricula_usuario`, `senha_usuario`, `nivel_usuario`, `cpf_usuario`, `nis_usuario`, `estado_civil_usuario`, `telefone_usuario`, `cep_usuario`, `endereco_usuario`, `cidade_usuario`, `estado_usuario`, `email_usuario`, `numero_usuario`, `data_nasc`) VALUES ('$nomeusuario','$matriculausuario','$senha','$nivelUsuario','$cpfusuario','$nisusuario','$estadocivil','$telefone','$cep','$endereco','$cidade','$estado','$email','$numero','$datanascusuario')";
 $inserir = mysqli_query($conn, $sql);
 
-if($inserir==true){
+if ($inserir == true) {
   print "<script>alert('Usuário Cadastrado com sucesso');</script>";
   print "<script>location.href='?page=home';</script>";
-}else{
+} else {
   print "<script>alert('Não foi possível adicionar o usuário');</script>";
   print "<script>location.href='?page=home';</script>";
 }
