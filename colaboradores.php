@@ -1,3 +1,7 @@
+<head>
+  <title>Colaboradores</title>
+</head>
+
 <!-- CONTEUDO -->
 <div class="container" style="margin-top: 100px">
   <div class="row">

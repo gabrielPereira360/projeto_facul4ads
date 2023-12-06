@@ -41,7 +41,7 @@ $nivel = $arr['nivel_usuario'];
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav" style="margin-left: 70%;">
-          <a class=" nav-link active btn btn-primary efeito" href="?page=home" role="button" style="color: white; margin-left: 5%">Voltar</a>
+          <a class=" nav-link active btn btn-primary efeito" href="?page=home" role="button" style="color: white; margin-left: 200px">Voltar</a>
         </div>
       </div>
     </nav>

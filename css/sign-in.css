@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+html,
+body {
+  height: 100%;
+  background: linear-gradient(0deg, #4C4570 0%, #36324B 0.01%, #6C639C 100%);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: #4C4570;
+  
+}
+
+
+.form-signin {
+  max-width: 350px;
+  height: 450px;
+  padding: 3rem 2rem;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px 6px #30285A;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-control{
+  border-radius: 40px;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+}
