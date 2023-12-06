@@ -36,36 +36,52 @@ function formataData($date)
     .navbar-nav {
       margin-left: 40px;
     }
+
+    .btn-primary {
+      background-color: #4C4570;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
+    }
+
+    .table {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500 ;
+      color: #4C4570;
+    }
   </style>
 </head>
 
 <body>
   <div class="container" style="margin-top: 40px; width: 100%">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <h1>Listar Pontos</h1>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <h1 style="font-weight: 700;">Pontos Registrados</h1>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav" style="margin-left: 70%;">
-          <a class=" nav-link active btn btn-primary efeito" href="?page=adc_ponto" role="button" style="color: white; width: 150px;">Registrar Ponto</a>
-          <a class=" nav-link active btn btn-primary efeito" href="?page=home" role="button" style="color: white; margin-left: 5%">Voltar</a>
+        <div class="navbar-nav" style="margin-left: 63%;">
+          <a class="btn btn-primary" href="?page=adc_ponto" role="button" style="color: white; width: 12em">Registrar Ponto</a>
+          <a class="btn btn-primary" href="?page=tela_ponto" role="button" style="color: white; margin-left: 5%">Voltar</a>
         </div>
       </div>
     </nav>
 
-    <table class="table table-striped">
+    <table class="table">
       <thead>
         <tr>
-          <th scope="col">N. Registro</th> 
-          <th scope="col">Matrícula</th> 
-          <th scope="col">Nome</th>
-          <th scope="col">Entrada</th>
-          <th scope="col">Ida Almoço</th>
-          <th scope="col">Volta Almoço</th>
-          <th scope="col">Saída</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">N. Registro</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Matrícula</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Nome</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Entrada</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Ida Almoço</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Volta Almoço</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Saída</th>
 
-          <th>Ação</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;">Ação</th>
         </tr>
       </thead>
       <?php
@@ -85,19 +101,19 @@ function formataData($date)
         $descricao = $array['descricao'];
       ?>
         <tr style="font-size: 14px">
-          <td><?php echo ($iduser); ?></td>
-          <td><?php echo ($userid); ?></td>
-          <td><?php echo ($nome); ?></td>
-          <td><?php echo formataData($inicio_expediente); ?></td>
-          <td><?php echo formataData($inicio_almoco); ?></td>
-          <td><?php echo formataData($fim_almoco); ?></td>
-          <td><?php echo formataData($fim_expediente); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($iduser); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($userid); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($nome); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo formataData($inicio_expediente); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo formataData($inicio_almoco); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo formataData($fim_almoco); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo formataData($fim_expediente); ?></td>
 
-          <td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;">
             <?php
             if (($nivel == 1) || $nivel == 2) {
             ?>
-              <a class="btn btn-warning btn-sm" href="?page=editar_ponto&id=<?php echo $iduser; ?>" role="button">Visualizar
+              <a href="?page=editar_ponto&id=<?php echo $iduser; ?>"><img class="img" src="img/edit.svg" alt="Icone de Editar">
               </a>
             <?php } else
               echo "Sem permissão para alterar ou excluir. Solicite ao seu Gerente/Supervisor"

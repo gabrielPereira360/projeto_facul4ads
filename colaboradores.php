@@ -1,8 +1,23 @@
 <head>
   <title>Colaboradores</title>
+  <style>
+    .btn-primary{
+      background-color: #4C4570;
+      border: none;
+    }
+
+    .btn-primary:hover{
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active{
+      background-color: #B3AADF !important;
+    }
+  </style>
 </head>
 
 <!-- CONTEUDO -->
+<h1 style="font-weight: 700; margin-left: 10%">Tela de Colaboradores</h1>
 <div class="container" style="margin-top: 100px">
   <div class="row">
     <?php
@@ -13,7 +28,7 @@
           <div class="card-body">
             <h5 class="card-title">Adicionar Usuário</h5>
             <p class="card-text">Opção para adicionar usuário com permissão já incluída e com cadastro sem necessidade de aprovação.</p>
-            <a href="?page=cad_user" class="btn btn-primary efeito">Adicionar Usuário</a>
+            <a href="?page=cad_user" class="btn btn-primary">Adicionar Usuário</a>
           </div>
         </div>
       </div>

@@ -30,24 +30,17 @@ $matricula = $_SESSION['matricula'];
       font-weight: bold;
     }
 
-    #updatebtn {
-      display: inline-block;
-      font-weight: 400;
-      text-align: center;
-      vertical-align: middle;
-      user-select: none;
-      padding: 0.4rem 0.75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      border-radius: 0.25rem;
+    .btn-primary {
+      background-color: #4C4570;
       border: none;
-      background-color: #03C988;
-      color: white;
     }
 
-    .efeito:hover {
-      transition: 0.5s;
-      opacity: 0.7
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
     }
   </style>
 
@@ -56,7 +49,8 @@ $matricula = $_SESSION['matricula'];
 <body>
   <div class="container" id="tamanhoContainer">
 
-    <h1><strong>Editar Ponto</strong></h1>
+    <h1 style="font-weight: 700; margin-bottom: 5%">Editar Ponto</h1>
+
 
     <form action="?page=atualizar_ponto" method="post">
       <input type="number" name="id" value="<?php echo $id; ?>" style="display: none;">
@@ -118,9 +112,9 @@ $matricula = $_SESSION['matricula'];
             </div>
           </div>
         </div>
-        <button type="submit" class="efeito" id="updatebtn">Atualizar</button>
-        <a class="efeito" id="updatebtn"  href="?page=deleta_ponto&id=<?php echo $iduser; ?>"  role="button" style="background-color: red">Excluir</a>
-        <a class="efeito btn btn-primary" href="?page=home" role="button">Voltar</a>
+        <button type="submit" class="btn btn-primary" > Atualizar</button>
+        <a class="btn btn-primary"  href="?page=deleta_ponto&id=<?php echo $iduser; ?>">Excluir</a>
+        <a class="btn btn-primary" href="?page=listar_pontos" role="button">Voltar</a>
       <?php } ?>
     </form>
   </div>

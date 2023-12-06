@@ -29,33 +29,50 @@ $nivel = $arr['nivel_usuario'];
     .navbar-nav {
       margin-left: 40px;
     }
+
+    .btn-primary {
+      background-color: #4C4570;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
+    }
+
+    .table {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500 ;
+      color: #4C4570;
+    }
+    
   </style>
 </head>
 
 <body>
   <div class="container" style="margin-top: 40px; width: 100%">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <h1>Meus Dados</h1>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <h1 style="font-weight: 700;">Meus Dados</h1>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav" style="margin-left: 70%;">
-          <a class=" nav-link active btn btn-primary efeito" href="?page=home" role="button" style="color: white; margin-left: 300%">Voltar</a>
+        <div class="navbar-nav" style="margin-left: 66%;">
+          <a class="btn btn-primary" href="?page=colaboradores" role="button" style="color: white; margin-left: 300%">Voltar</a>
         </div>
       </div>
     </nav>
 
-    <table class="table table-striped">
+    <table class="table" style="margin-top: 5%;">
       <thead>
         <tr>
-          <th scope="col">Nome do Usuario</th>
-          <th scope="col">Matrícula</th>
-          <th scope="col">CPF</th>
-          <th scope="col">Telefone</th>
-          <th scope="col">Email</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Nome do Usuario</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Matrícula</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">CPF</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Telefone</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;" scope="col">Email</th>
 
-          <th>Ação</th>
+          <th style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 700;color: #4C4570;">Ação</th>
         </tr>
       </thead>
       <?php
@@ -73,12 +90,12 @@ $nivel = $arr['nivel_usuario'];
         $email = $array['email_usuario'];
       ?>
         <tr style="font-size: 14px">
-          <td><?php echo ($nome); ?></td>
-          <td><?php echo ($matricula); ?></td>
-          <td><?php echo ($cpf); ?></td>
-          <td><?php echo ($telefone); ?></td>
-          <td><?php echo ($email); ?></td>
-          <td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($nome); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($matricula); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($cpf); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($telefone); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;"><?php echo ($email); ?></td>
+          <td style="background: #CAC8D4; text-align:center;font-family: 'Montserrat', sans-serif;font-weight: 600;color: #4C4570;">
             <?php
             if (($nivel == 1) || $nivel == 2) {
             ?>

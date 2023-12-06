@@ -20,21 +20,29 @@ $matricula = $_SESSION['matricula'];
       transition: 0.5s;
       opacity: 0.7
     }
-  </style>
+    .btn-primary {
+      background-color: #4C4570;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
+    }
+    </style>
 </head>
 
 
 <body>
   <div class="container" style="width: 70%">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <h1>Registrar Ponto</h1>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <h1 style="font-weight: 700;">Registrar Ponto</h1>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav" style="margin-left: 55%;">
-          <a class=" nav-link active btn btn-primary efeito" href="?page=lista_pontos" role="button" style="margin: 0 10px;"><span style="color: white">Listar Marcações</span></a>
-          <a class=" nav-link active btn btn-primary efeito" href="?page=home" role="button" style="color: white">Voltar</a>
+        <div class="navbar-nav" style="margin-left: 93%;">
+          <a class="btn btn-primary" href="?page=tela_ponto" role="button" style="color: white; border: none">Voltar</a>
         </div>
       </div>
     </nav>
@@ -46,7 +54,7 @@ $matricula = $_SESSION['matricula'];
         <div class="input-group mb-3">
           <input id="entrada" class="form-control" type="text" name="entradaExp" readonly>
           <div class="input-group-append">
-            <button id="button" type="submit" class="btn btn-primary efeito" name="btnAcao" value="entradaExpediente" onclick="habilitarCampoAbaixo('iniciarAlmoco', 'entrada', 'button')">
+            <button id="button" type="submit" class="btn btn-primary" name="btnAcao" value="entradaExpediente" onclick="habilitarCampoAbaixo('iniciarAlmoco', 'entrada', 'button')">
               Entrada Expediente
             </button>
           </div>

@@ -19,24 +19,22 @@ $matricula = $_SESSION['matricula'];
   <title>Dados de Usuário</title>
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
-    #updatebtn {
-      display: inline-block;
-      font-weight: 400;
-      text-align: center;
-      vertical-align: middle;
-      user-select: none;
-      padding: 0.15rem 0.75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-      border-radius: 0.25rem;
+    .btn-primary {
+      background-color: #4C4570;
       border: none;
-      background-color: #03C988;
-      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
     }
   </style>
 </head>
 
-<body>
+<body onLoad="consultarCEP()">
 
   <?php
   include "conexao.php";
@@ -66,15 +64,15 @@ $matricula = $_SESSION['matricula'];
   <div class="container" style="width: 80%">
 
     <div style="text-align: right">
-      <a href="menu.php" role="button" class="btn btn-success btn-sm" style="margin-left: 25px">Voltar</a>
+      <a href="?page=listar_user" role="button" class="btn btn-primary" style="margin-left: 25px">Voltar</a>
     </div>
 
     <br>
 
-    <h1><strong>Cadastrar Usuário</strong></h1>
+    <h1><strong>Dados do Usuário</strong></h1>
 
     <form id="meuFormulario" action="?page=atualizar_user" method="post">
-    <input type="number" name="id" value="<?php echo $id; ?>" style="display: none;">
+      <input type="number" name="id" value="<?php echo $id; ?>" style="display: none;">
       <div class="form-group">
         <label>Nome Usuário</label>
         <input type="text" name="nomeusuario" class="form-control" required="required" autocomplete="off" placeholder="Nome completo do usuário" value="<?= $nomeusuario ?>">
@@ -105,27 +103,13 @@ $matricula = $_SESSION['matricula'];
         <label>Número de Telefone</label>
         <input type="text" name="telefoneusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números" value="<?= $telefone ?>">
       </div>
+
       <div class="form-group">
         <label>CEP</label>
-        <input type="text" name="cepusuario" id="cepusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números" value="<?= $cep ?>">
+        <input type="text" name="cepusuario" id="cepusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números" maxlength="8" value="<?= $cep ?>">
+        <button type="button" class="btn btn-primary" style="margin-top: 2%;" onclick="consultarCEP()">Consultar</button>
       </div>
-      <div class="form-group">
-        <label>Endereço</label>
-        <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off" value="<?= $endereco ?>">
-      </div>
-      <div class="form-group">
-        <label>Cidade</label>
-        <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off" value="<?= $cidade ?>">
-      </div>
-      <div class="form-group">
-        <label>Estado</label>
-        <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off" value="<?= $estado ?>">
-      </div>
-      <div class="form-group">
-        <label>Número</label>
-        <input type="test" id="numerousuario" name="numerousuario" class="form-control" required="required" autocomplete="off" value="<?= $numero ?>">
-      </div>
-
+      <p id="resultado"></p>
       <hr style="border: 1px solid purple;">
 
       <div class="form-group">
@@ -149,10 +133,10 @@ $matricula = $_SESSION['matricula'];
         <input type="text" name="senhausuario" class="form-control" required="required" autocomplete="off" placeholder="Senha do usuário" value="<?= $senha ?>">
       </div>
 
-      <div style="text-align: right">
-        <button type="submit" onclick="validarFormulario()" class="btn btn-sm btn-success">Atualizar</button>
-        <a class="efeito" id="updatebtn" href="?page=deleta_usuario&id=<?php echo $iduser; ?>" role="button" style="background-color: red">Excluir</a>
-      </div>
+      <div style="text-align: left;margin-top: 40px">
+        <button type="submit" onclick="validarFormulario()" class="btn btn-primary">Atualizar</button>
+          <a class="btn btn-primary" href="?page=deleta_usuario&id=<?php echo $iduser; ?>" role="button" style="margin-left: 25px">Excluir</a>
+        </div>
     </form>
   </div>
 
@@ -209,6 +193,75 @@ $matricula = $_SESSION['matricula'];
       }
     }
   </script>
+  <script>
+    function consultarCEP() { //Verifica o CEP
+      // Obter o valor do CEP digitado pelo usuário
+      var cep = document.getElementById('cepusuario').value;
+
+      // Montar a URL da API do ViaCEP
+      var url = `https://viacep.com.br/ws/${cep}/json/`;
+
+      // Fazer uma requisição AJAX usando XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      xhr.onload = function() {
+        if (xhr.status == 200) {
+          // Converter a resposta JSON para um objeto JavaScript
+          var endereco = JSON.parse(xhr.responseText);
+
+          // Verificar se o CEP é válido
+          if (!endereco.erro) {
+            // Exibir as informações na página
+            document.getElementById('resultado').innerHTML = `
+              <div class="form-group">
+                <label>Endereço</label>
+                <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off" value="${endereco.logradouro}, ${endereco.bairro}">
+              </div>
+              <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off" value="${endereco.localidade}" >
+              </div>
+              <div class="form-group">
+                <label>Estado</label>
+                <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off" value="${endereco.uf}">
+              </div>    
+              <div class="form-group">
+                <label>Número</label>
+                <input type="test" id="numerousuario" name="numerousuario" class="form-control" required="required" autocomplete="off">
+              </div>         
+            `;
+          } else {
+            // Se o CEP for inválido, exibir uma mensagem de erro
+            document.getElementById('resultado').innerHTML = `<strong>CEP não encontrado (Informe manualmente)</strong>,<br>
+              <div class="form-group">
+                <label>Endereço</label>
+                <input type="text" id="enderecousuario" name="enderecousuario" class="form-control" required="required" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" id="cidadeusuario" name="cidadeusuario" class="form-control" required="required" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label>Estado</label>
+                <input type="text" id="estadousuario" name="estadousuario" class="form-control" required="required" autocomplete="off">
+              </div>    
+              <div class="form-group">
+                <label>Número</label>
+                <input type="test" id="numerousuario" name="numerousuario" class="form-control" required="required" autocomplete="off">
+              </div>         
+            `;
+          }
+        } else {
+          // Exibir uma mensagem de erro se a requisição falhar
+          document.getElementById('resultado').innerHTML = `Erro ao consultar o CEP`;
+        }
+      };
+
+      xhr.send();
+    }
+  </script>
+
 </body>
 
 </html>

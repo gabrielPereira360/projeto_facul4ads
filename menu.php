@@ -36,9 +36,8 @@ $nome = $arr['nome_usuario'];
   <title>Tela Inicial</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
 
 
 
@@ -225,14 +224,14 @@ $nome = $arr['nome_usuario'];
         <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="img/Opções.svg" alt="mdo" width="70" height="70" class="rounded-circle">
         </a>
-        <ul class="dropdown-menu text-small shadow">
+        <ul class="dropdown-menu text-small shadow" style="width: 15px;">
           <!-- <li><a class="dropdown-item" href="#">New project...</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
           <li><a class="dropdown-item" href="#">Profile</a></li>
           <li>
             <hr class="dropdown-divider">
           </li> -->
-          <li><a class="dropdown-item" href="sair.php">Sair</a></li>
+          <li><a class="dropdown-item" href="sair.php" style="font-size: 0.8em;">Sair</a></li>
         </ul>
       </div>
     </div>

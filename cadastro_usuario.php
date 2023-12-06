@@ -18,13 +18,27 @@ $matricula = $_SESSION['matricula'];
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <title>Cadastro de Usuário</title>
   <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+    .btn-primary {
+      background-color: #4C4570;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #6D639C;
+    }
+
+    .btn-primary:active {
+      background-color: #B3AADF !important;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container" style="width: 80%">
 
     <div style="text-align: right">
-      <a href="menu.php" role="button" class="btn btn-success btn-sm" style="margin-left: 25px">Voltar</a>
+      <a href="?page=colaboradores" role="button" class="btn btn-primary" style="margin-left: 25px">Voltar</a>
     </div>
 
     <br>
@@ -65,7 +79,7 @@ $matricula = $_SESSION['matricula'];
       <div class="form-group">
         <label>CEP</label>
         <input type="text" name="cepusuario" id="cepusuario" class="form-control" required="required" autocomplete="off" placeholder="Informe somente os números" maxlength="8">
-        <button type="submit" class="btn btn-sm btn-success" style="margin-top: 2%;" onclick="consultarCEP()">Consultar</button>
+        <button type="submit" class="btn btn-primary" style="margin-top: 2%;" onclick="consultarCEP()">Consultar</button>
       </div>
       <p id="resultado"></p>
 
@@ -93,8 +107,8 @@ $matricula = $_SESSION['matricula'];
         <input type="password" name="senhausuario" class="form-control" required="required" autocomplete="off" placeholder="Senha do usuário">
       </div>
 
-      <div style="text-align: right">
-        <button type="submit" onclick="validarFormulario()" class="btn btn-sm btn-success">Cadastrar</button>
+      <div style="text-align: left;">
+        <button type="submit" onclick="validarFormulario()" class="btn btn-primary">Cadastrar</button>
       </div>
     </form>
   </div>
@@ -169,27 +183,27 @@ $matricula = $_SESSION['matricula'];
       xhr.send();
     }
   </script>
-     <script>
-        function validarCPF(cpf) {
-            cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
+  <script>
+    function validarCPF(cpf) {
+      cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
 
-            if (cpf.length !== 11) {
-                alert("CPF deve ter 11 dígitos.");
-                return false;
-            }
-        }
+      if (cpf.length !== 11) {
+        alert("CPF deve ter 11 dígitos.");
+        return false;
+      }
+    }
 
-        function validarFormulario() {
-            const cpfInput = document.getElementById("cpf");
-            const cpf = cpfInput.value;
+    function validarFormulario() {
+      const cpfInput = document.getElementById("cpf");
+      const cpf = cpfInput.value;
 
-            if (validarCPF(cpf)) {
-                // Faça algo quando o CPF for válido, como enviar o formulário
-                const formulario = document.getElementById("meuFormulario");
-                formulario.submit();
-            }
-        }
-    </script>
+      if (validarCPF(cpf)) {
+        // Faça algo quando o CPF for válido, como enviar o formulário
+        const formulario = document.getElementById("meuFormulario");
+        formulario.submit();
+      }
+    }
+  </script>
 </body>
 
 </html>
